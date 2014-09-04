@@ -1,0 +1,85 @@
+<?php
+  
+  	$_fp = fopen("php://stdin", "r");
+	$satana = fgets($_fp);
+	
+	$huinja = array(
+			'a',
+			'A',
+			'b',
+			'B',
+			'c',
+			'C',
+			'd',
+			'D',
+			'e',
+			'E',
+			'f',
+			'F',
+			'g',
+			'G',
+			'h',
+			'H',
+			'i',
+			'I',
+			'j',
+			'J',
+			'k',
+			'K',
+			'l',
+			'L',
+			'm',
+			'M',
+			'n',
+			'N',
+			'o',
+			'O',
+			'p',
+			'P',
+			'q',
+			'Q',
+			'r',
+			'R',
+			's',
+			'S',
+			't',
+			'T',
+			'u',
+			'U',
+			'v',
+			'V',
+			'w',
+			'W',
+			'x',
+			'X',
+			'y',
+			'Y',
+			'z',
+			'Z',
+		);
+	
+	$tralala = array();
+	$f = 0;
+	
+	foreach ($huinja as $k => $v)
+	{
+		++$f;
+		if ($f % 2 == 0)
+		{
+			$tralala[$huinja[($k - 1)]] = $huinja[$k];
+		}
+	}
+	
+	$arr = str_split($satana);
+	$arr2 = array_flip($tralala);
+	
+	for ($j = 0; $j < count($arr); ++$j)
+	{
+		if (! empty($arr2) && in_array(strtolower($arr[$j]), $arr2))
+		{
+			unset($arr2[strtoupper($arr[$j])]);
+		}
+	}
+  
+	print((count($arr2) === 0 ? 'pangram' : 'not pangram').PHP_EOL);
+?>
