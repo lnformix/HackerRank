@@ -1,0 +1,17 @@
+<?php
+  
+  	$_fp = fopen("php://stdin", "r");
+	$satana = fgets($_fp);
+	
+	$field = explode(' ', $satana);
+
+	if ($field[0] >= $field[1])
+	{
+		print($field[0] - 1);
+	}
+	else
+	{
+		print('zhopa');
+	}
+
+?>
