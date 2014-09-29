@@ -1,0 +1,38 @@
+<?php
+  
+  	$_fp = fopen("php://stdin", "r");
+	$satana = fgets($_fp);
+	
+	$arr = array();
+	
+	for ($i = 0; $i < $satana; ++$i)
+	{
+		$temp = explode(' ', fgets($_fp));
+		$arr[$i + 1] = $temp[0] + $temp[1];
+	}
+	
+	//asort($arr);
+	
+	// fuckin lexicographs
+	$ans = array();
+	$size = count($arr) + 1;
+	
+	for ($i = 0; $i < $size; ++$i)
+	{
+		$min = 100000000;
+		for ($j = 0; $j < $size; ++$j)
+		{
+			if (isset($arr[$j]) && $min > $arr[$j])
+			{
+				$min = $arr[$j];
+				$key = $j;
+			}
+		}
+  		unset($arr[$key]);
+		$ans[] = $key;
+	}
+
+	unset($ans[count($ans) - 1]);
+	
+	print_r(implode(' ', $ans));
+?>
