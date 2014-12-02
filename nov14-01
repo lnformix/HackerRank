@@ -1,0 +1,26 @@
+<?php
+	
+	$_fp = fopen("php://stdin", "r");
+	$count = trim(fgets($_fp));
+	
+	for ($i = 0; $i < $count; ++$i)
+	{
+		$a = trim(fgets($_fp));
+		$b = trim(fgets($_fp));
+		
+		$aa = str_split($a);
+		
+		$ans = 'NO';
+		
+		foreach ($aa as $l)
+		{
+			if (strpos($b, $l) !== FALSE)
+			{
+				$ans = 'YES';
+				break;
+			}
+		}
+		
+		print($ans.PHP_EOL);
+	}
+?>
