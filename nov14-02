@@ -1,0 +1,22 @@
+<?php
+	
+	$_fp = fopen("php://stdin", "r");
+	$count = trim(fgets($_fp));
+	
+	for ($i = 0; $i < $count; ++$i)
+	{
+		$arr = explode(' ', trim(fgets($_fp)));
+		$n = $arr[0];
+		$m = $arr[1];
+		
+		$sum = 1;
+
+		for ($i = 0; $i < $n; ++$i)
+		{
+			$sum *= $m;
+			$sum -= $m * ($i < 2 ? $i : 2);
+		}
+		
+		print($sum.PHP_EOL);
+	}
+?>
